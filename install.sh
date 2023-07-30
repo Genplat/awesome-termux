@@ -41,8 +41,8 @@ function cpfiles() {
     mv awesome-termux custoMUX &> /dev/null
     cd custoMUX &> /dev/null
     rm ~/../usr/bin/login &> /dev/null
-    chmod +x bin/* &> /dev/null
-    cp -r bin/* ~/../usr/bin/ &> /dev/null
+    chmod +x * &> /dev/null
+    cp -r * ~/../usr/bin/ &> /dev/null
 }
 
 function confprof() {
@@ -163,10 +163,10 @@ function cleanup() {
 function check_dependencies() {
     printf "\n[*] Checking package dependencies and installing basic packages...${reset}\n"
     ## Workaround for termux-app issue #1283 (https://github.com/termux/termux-app/issues/1283)
-    pkg update -y 
-    apt update -y 
-    apt-get update -y || apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" dist-upgrade -y
-    pkg i -y bash nano python python3 figlet toilet git zsh neovim wget curl zip 
+    pkg update 
+    apt update 
+    apt-get update || apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" dist-upgrade 
+    pkg i bash nano python python3 figlet toilet git zsh neovim wget curl zip 
     pip3 install lolcat
 
     for i in proot tar axel; do
@@ -446,8 +446,11 @@ create_launcher
 ctbanner
 cleanup
 ctbanner
-echo "\n[*] Configuring NetHunter for Termux ...\n" | lolcat
+printf "\n[*] Configuring NetHunter for Termux ...\n" | lolcat
 fix_profile_bash
 fix_sudo
 create_kex_launcher
 fix_uid
+echo "Installed! Clossing in 10s..." | lolcat
+sleep 10
+login
