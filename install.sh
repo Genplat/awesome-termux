@@ -56,15 +56,15 @@ function confprof() {
 function unsupported_arch() {
     ctbanner
     printf "${red}"
-    echo "[*] Unsupported Architecture\n\n"
+    printf "[*] Unsupported Architecture\n\n"
     printf "${reset}"
     exit
 }
 
 function magisk_alert() {
     printf "${blue}Do you have magisk installed? You can try our CustoMUX magisk module for a more easy installation and more tools!"
-    echo "${blue}Download at https://github.com/Genplat/CustoMUX"
-    echo "${blue}Wait 5s to install BASIC CustoMUX (awesome-termux) or Ctrl+C to cancell and install magisk module"
+    printf "${blue}Download at https://github.com/Genplat/CustoMUX"
+    printf "${blue}Wait 5s to install BASIC CustoMUX (awesome-termux) or Ctrl+C to cancell and install magisk module"
     sleep 5
 }
 
@@ -131,7 +131,7 @@ function set_strings() {
     then
             ctbanner
             echo "[!] NetHunter installation will be MINIMAL. Your arch doesn't support a full nethunter installation." | lolcat
-        wimg="minimal"
+            wimg="minimal"
     fi
     ####
 
@@ -161,7 +161,7 @@ function cleanup() {
 } 
 
 function check_dependencies() {
-    echo "$\n[*] Checking package dependencias and installing básica packages...${reset}\n" | lolcat
+    printf "$\n[*] Checking package dependencias and installing básica packages...${reset}\n" | lolcat
     ## Workaround for termux-app issue #1283 (https://github.com/termux/termux-app/issues/1283)
     pkg update -y &> /dev/null
     apt update -y &> /dev/null
@@ -171,7 +171,7 @@ function check_dependencies() {
 
     for i in proot tar axel; do
         if [ -e $PREFIX/bin/$i ]; then
-            echo "  $i is OK" | lolcat
+            printf "  $i is OK" | lolcat
         else
             echo "Installing ${i}...\n" | lolcat
             apt install -y $i || {
@@ -194,14 +194,14 @@ function get_rootfs() {
     if [ -f ${IMAGE_NAME} ]; then
         rm -f ${IMAGE_NAME}
     fi
-    echo "[*] Downloading rootfs...${reset}\n\n" | lolcat
+    printf "[*] Downloading rootfs...${reset}\n\n" | lolcat
     get_url
     wget ${EXTRA_ARGS} --continue "${ROOTFS_URL}" | lolcat
 }
 
 function get_sha() {
     if [ -z $KEEP_IMAGE ]; then
-        echo "\n[*] Getting SHA ... ${reset}\n\n" | lolcat
+        printf "\n[*] Getting SHA ... ${reset}\n\n" | lolcat
         get_url
         if [ -f ${SHA_NAME} ]; then
             rm -f ${SHA_NAME}
@@ -212,15 +212,15 @@ function get_sha() {
 
 function verify_sha() {
     if [ -z $KEEP_IMAGE ]; then
-        echo "\n[*] Verifying integrity of rootfs...${reset}\n\n" | lolcat
+        printf "\n[*] Verifying integrity of rootfs...${reset}\n\n" | lolcat
         sha512sum -c $SHA_NAME || {
-            echo "Don't use unofficial nethunter rootfs.\n" | lolcat
+            printf "Don't use unofficial nethunter rootfs.\n" | lolcat
         }
     fi
 }
 
 function extract_rootfs() {
-    echo "\n[*] Extracting rootfs...\n\n" | lolcat
+    printf "\n[*] Extracting rootfs...\n\n" | lolcat
     proot --link2symlink tar -xf $IMAGE_NAME 2> /dev/null
 }
 
@@ -412,11 +412,16 @@ if [[ ! -z $1 ]]; then
     fi
 fi
 
+##############
+#            #
+#   INSTALL  #
+# By Genplat #
+#            #
+##############
+
 termux-setup-storage
-ctbanner
 magisk_alert
 cd $HOME
-ctbanner
 check_dependencies
 get_arch
 set_strings
@@ -439,7 +444,6 @@ ctbanner
 create_launcher
 ctbanner
 cleanup
-
 ctbanner
 echo "\n[*] Configuring NetHunter for Termux ...\n" | lolcat
 fix_profile_bash
