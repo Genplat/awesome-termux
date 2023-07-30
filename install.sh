@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash -e
 
 VERSION=2020011601 # Kali version variable
-BASE_URL=https://kali.download/nethunter-images/current/rootf
+BASE_URL=https://kali.download/nethunter-images/current/rootfs
 USERNAME=kali
 
 function ctbanner() {
