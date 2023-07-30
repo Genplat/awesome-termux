@@ -163,6 +163,7 @@ function cleanup() {
 function check_dependencies() {
     printf "\n[*] Checking package dependencies and installing basic packages...${reset}\n"
     ## Workaround for termux-app issue #1283 (https://github.com/termux/termux-app/issues/1283)
+    rm /data/data/com.termux/files/usr/etc/profile.d/init-termux-properties.sh # This fix bugs
     rm /data/data/com.termux/files/usr/etc/motd # This file bug some devices :/
     pkg update -y
     apt update -y
