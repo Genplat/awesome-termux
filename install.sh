@@ -4,8 +4,6 @@ VERSION=2020011601 # Kali version variable
 BASE_URL=https://kali.download/nethunter-images/current/rootf
 USERNAME=kali
 
-termux-setup-storage
-
 function ctbanner() {
     clear
     echo -e """\t
@@ -32,11 +30,13 @@ function ctbanner() {
 }
 
 function clonerepo() {
+    ctbanner
     echo Cloning sources... | lolcat
     git clone https://github.com/Genplat/awesome-termux
 }
 
 function cpfiles() {
+    ctbanner
     echo Copying files... | lolcat
     mv awesome-termux custoMUX &> /dev/null
     cd custoMUX &> /dev/null
@@ -46,6 +46,7 @@ function cpfiles() {
 }
 
 function confprof() {
+    ctbanner
     read -p "New username: " usernametermux
     read -p "New password: " passwdtermux
     echo $passwdtermux > ~/../usr/etc/passwdtermux
@@ -53,6 +54,7 @@ function confprof() {
 }
 
 function unsupported_arch() {
+    ctbanner
     printf "${red}"
     echo "[*] Unsupported Architecture\n\n"
     printf "${reset}"
@@ -103,6 +105,7 @@ function ask() {
 }
 
 function get_arch() {
+    ctbanner
     echo "[*] Checking device architecture ..." | lolcat
     case $(getprop ro.product.cpu.abi) in
         arm64-v8a)
@@ -126,6 +129,7 @@ function set_strings() {
         wimg="full"
     elif [[ ${SYS_ARCH} == "armhf" ]];
     then
+            ctbanner
             echo "[!] NetHunter installation will be MINIMAL. Your arch doesn't support a full nethunter installation." | lolcat
         wimg="minimal"
     fi
@@ -409,23 +413,35 @@ if [[ ! -z $1 ]]; then
     fi
 fi
 
+termux-setup-storage
+ctbanner
 magisk_alert
 cd $HOME
+ctbanner
 check_dependencies
 get_arch
 set_strings
+ctbanner
 installzsh_theme
 clonerepo
 cpfiles
+ctbanner
 prepare_fs
+ctbanner
 get_rootfs
+ctbanner
 get_sha
+ctbanner
 verify_sha
+ctbanner
 extract_rootfs
 confprof
+ctbanner
 create_launcher
+ctbanner
 cleanup
 
+ctbanner
 echo "\n[*] Configuring NetHunter for Termux ...\n" | lolcat
 fix_profile_bash
 fix_sudo
