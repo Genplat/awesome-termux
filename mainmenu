@@ -1,0 +1,10 @@
+clear
+bannermenu
+echo "1. Shell Termux"
+echo "2. Shell NetHunter"
+echo "3. Start NetHunter Kex"
+echo "4. AndroidSU"
+echo "5. Logout"
+echo
+echo
+python3 /data/data/com.termux/files/home/custoMUX/mainmenu.py

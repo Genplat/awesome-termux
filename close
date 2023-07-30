@@ -1,0 +1,5 @@
+banner
+rm /data/data/com.termux/files/home/custoMUX/passwdlock
+echo "Sesión closed." | lolcat
+login
+exit
