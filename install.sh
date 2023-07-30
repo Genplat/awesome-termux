@@ -161,7 +161,7 @@ function cleanup() {
 } 
 
 function check_dependencies() {
-    printf "$\n[*] Checking package dependencias and installing básica packages...${reset}\n"
+    printf "\n[*] Checking package dependencias and installing basic packages...${reset}\n"
     ## Workaround for termux-app issue #1283 (https://github.com/termux/termux-app/issues/1283)
     pkg update -y &> /dev/null
     apt update -y &> /dev/null
