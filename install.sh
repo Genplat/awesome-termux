@@ -62,9 +62,9 @@ function unsupported_arch() {
 }
 
 function magisk_alert() {
-    printf "${blue}Do you have magisk installed? You can try our CustoMUX magisk module for a more easy installation and more tools!"
-    printf "${blue}Download at https://github.com/Genplat/CustoMUX"
-    printf "${blue}Wait 5s to install BASIC CustoMUX (awesome-termux) or Ctrl+C to cancell and install magisk module"
+    printf "${blue}Do you have magisk installed? You can try our CustoMUX magisk module for a more easy installation and more tools!\n"
+    printf "${blue}Download at https://github.com/Genplat/CustoMUX\n"
+    printf "${blue}Wait 5s to install BASIC CustoMUX (awesome-termux) or Ctrl+C to cancell and install magisk module\n\n"
     sleep 5
 }
 
@@ -161,7 +161,7 @@ function cleanup() {
 } 
 
 function check_dependencies() {
-    printf "$\n[*] Checking package dependencias and installing básica packages...${reset}\n" | lolcat
+    printf "$\n[*] Checking package dependencias and installing básica packages...${reset}\n"
     ## Workaround for termux-app issue #1283 (https://github.com/termux/termux-app/issues/1283)
     pkg update -y &> /dev/null
     apt update -y &> /dev/null
@@ -420,6 +420,7 @@ fi
 ##############
 
 termux-setup-storage
+sleep 3
 magisk_alert
 cd $HOME
 check_dependencies
