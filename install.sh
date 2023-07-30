@@ -166,9 +166,9 @@ function check_dependencies() {
     rm /data/data/com.termux/files/usr/etc/profile.d/init-termux-properties.sh # This fix bugs
     rm /data/data/com.termux/files/usr/etc/motd # This file bug some devices :/
     pkg update -y
-    apt update -y
     rm /data/data/com.termux/files/usr/etc/apt/sources.list # Idk why but deleting this, I fix a bug
     pkg i apt
+    apt update -y
     apt-get update -y|| apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" dist-upgrade -y
     pkg -y i nano python python3 figlet toilet git zsh neovim wget curl zip 
     pip3 install lolcat
