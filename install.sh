@@ -157,7 +157,6 @@ function cleanup() {
 	    if [ -f ${SHA_NAME} ]; then
                 rm -f ${SHA_NAME}
 	    fi
-        fi
     fi
 } 
 
