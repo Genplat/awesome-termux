@@ -163,11 +163,11 @@ function cleanup() {
 function check_dependencies() {
     printf "\n[*] Checking package dependencies and installing basic packages...${reset}\n"
     ## Workaround for termux-app issue #1283 (https://github.com/termux/termux-app/issues/1283)
-    pkg update -y &> /dev/null
-    apt update -y &> /dev/null
-    apt-get update -y &> /dev/null || apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" dist-upgrade -y &> /dev/null
-    pkg i bash nano python python3 figlet toilet git zsh neovim wget curl zip &> /dev/null
-    pip3 install lolcat &> /dev/null
+    pkg update -y 
+    apt update -y 
+    apt-get update -y || apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" dist-upgrade -y
+    pkg i -y bash nano python python3 figlet toilet git zsh neovim wget curl zip 
+    pip3 install lolcat
 
     for i in proot tar axel; do
         if [ -e $PREFIX/bin/$i ]; then
