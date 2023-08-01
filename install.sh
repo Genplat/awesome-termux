@@ -161,26 +161,14 @@ function cleanup() {
 } 
 
 function check_dependencies() {
-    printf "\n[*] Checking package dependencies and installing basic packages...${reset}\n"
+    printf "\n[*] Installing packages...${reset}\n"
     ## Workaround for termux-app issue #1283 (https://github.com/termux/termux-app/issues/1283)
     rm /data/data/com.termux/files/usr/etc/profile.d/init-termux-properties.sh # This fix bugs
     rm /data/data/com.termux/files/usr/etc/motd # This file bug some devices :/
+    pkg update -y
     apt-get update -y || apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" dist-upgrade -y
-    pkg -y i nano python python3 figlet toilet git zsh neovim wget curl zip 
+    apt install -y proot tar axel nano python python3 figlet toilet git zsh neovim wget curl zip 
     pip3 install lolcat
-
-    for i in proot tar axel; do
-        if [ -e $PREFIX/bin/$i ]; then
-            printf "  $i is OK" | lolcat
-        else
-            echo "Installing ${i}...\n" | lolcat
-            apt install -y $i || {
-                printf "${red}ERROR: Failed to install packages.\n Exiting.\n${reset}"
-	        exit
-            }
-        fi
-    done
-    apt upgrade -y
 }
 
 
