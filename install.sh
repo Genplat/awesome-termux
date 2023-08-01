@@ -43,6 +43,7 @@ function cpfiles() {
     rm ~/../usr/bin/login &> /dev/null
     chmod +x * &> /dev/null
     cp -r * ~/../usr/bin/ &> /dev/null
+    cd $HOME
 }
 
 function confprof() {
@@ -50,7 +51,7 @@ function confprof() {
     read -p "New username: " usernametermux
     read -p "New password: " passwdtermux
     echo $passwdtermux > ~/../usr/etc/passwdtermux
-    echo $username termux > ~/../usr/etc/usrtermux
+    echo $usernametermux > ~/../usr/etc/usrtermux
 }
 
 function unsupported_arch() {
