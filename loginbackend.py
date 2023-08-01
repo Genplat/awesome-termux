@@ -7,8 +7,6 @@ def login(username, passwd):
     with open("/data/data/com.termux/files/usr/etc/passwdtermux") as passwdinfile:
         stored_passwd = passwdinfile.read().strip()
 
-    print(f"Pass: {stored_passwd} y User: {stored_username}")
-
     if username == stored_username and passwd == stored_passwd:
         os.system('touch /data/data/com.termux/files/home/custoMUX/passwdlock')
         os.system("mainmenu")
