@@ -21,5 +21,5 @@ def func():
 	    os.system("logout")
 	else:
 	    os.system("echo [!] Invalid option | lolcat")
-            func()
+	    func()
 func()
