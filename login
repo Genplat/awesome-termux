@@ -1,7 +1,7 @@
 clear
 banner
 toilet -f ivrit ' Welcome' | lolcat
-echo "\fPlease, log in"
+echo "Please, log in" | toilet
 echo
 echo
 loginbackend
