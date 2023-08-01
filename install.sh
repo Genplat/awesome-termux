@@ -132,6 +132,7 @@ function set_strings() {
     then
             ctbanner
             echo "[!] NetHunter installation will be MINIMAL. Your arch doesn't support a full nethunter installation." | lolcat
+	    sleep 3
             wimg="minimal"
     fi
     ####
