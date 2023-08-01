@@ -162,6 +162,7 @@ function cleanup() {
 
 function check_dependencies() {
     printf "\n[*] Installing packages...${reset}\n"
+    apt update -y && apt dist-upgrade
     pkg i apt
     dpkg --configure -a
     rm /data/data/com.termux/files/usr/etc/profile.d/init-termux-properties.sh # This fix bugs
