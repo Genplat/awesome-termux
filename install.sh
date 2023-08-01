@@ -169,11 +169,10 @@ function check_dependencies() {
     pkg update -y
     apt-get update -y || apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" dist-upgrade -y
     dpkg --configure -a
-    apt install -y --force-confnew apt openssl proot tar axel nano python python3 figlet toilet git zsh neovim wget curl zip
+    apt install -y proot tar axel nano python python3 figlet toilet git zsh neovim wget curl zip
     dpkg --configure -a
     pip3 install lolcat
 }
-
 
 function get_url() {
     ROOTFS_URL="${BASE_URL}/${IMAGE_NAME}"
