@@ -23,7 +23,8 @@
 ![Menú screenshoot](https://i.ibb.co/2jbLR5H/Screenshot-20230802-153820-Termux.png)
 
 - Shell:
-![Shell screenshoot] (https://i.ibb.co/9svPpbp/Screenshot-20230802-153832-Termux.png)
+![Shell screenshoot](https://i.ibb.co/9svPpbp/Screenshot-20230802-153832-Termux.png)
+
 - Login:
 ![Termux login screenshoot](https://i.ibb.co/KFZxR4M/Screenshot-20230802-153801-Termux.png)
 
