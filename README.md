@@ -20,10 +20,12 @@
 
 ## Screenshots:
 - Menu:
+![Menú screenshoot](https://i.ibb.co/2jbLR5H/Screenshot-20230802-153820-Termux.png)
 
 - Shell:
-
+![Shell screenshoot](https://ibb.co/MMhdgcg)
 - Login:
+![Termux login screenshoot](https://i.ibb.co/KFZxR4M/Screenshot-20230802-153801-Termux.png)
 
 ## Install
 
