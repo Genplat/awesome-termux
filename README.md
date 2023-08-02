@@ -1,9 +1,33 @@
-# awesome-termux
+# Awesome Termux Kit: CustoMUX
+### [*] CustoMUX Awesome Termux Toolkit Basic does NOT require root, however, it does have root functions. If you have root, take a look at our [magisk module](https://github.com/Genplat/customux), it not only has functions for termux, but it is a great toolkit full of functions, obviously, always using the CustoMUX Menu.
 
-## TESTING: WAIT AND **NO** USE THIS NOW
+----------------------------------------
 
-Personalize your termux bla bla bla (Actualizaré esto luego XD)
+## Functions:
+- AndroidSU Shell
+- Kali nethunter installation
+- Powerlevel10k
+- Zsh
+- Full termux setup
+- Login system
+- Interactive menu
+- Kali Shell
+- Awesome UI
+- Easy Kex Access
+- Custom termux user & password
+- Autologin in same session
+- Automatic login in the same Termux session
 
+## Screenshots:
+- Menu:
+
+- Shell:
+
+- Login:
+
+## Install
+
+Installing CustoMUX Termux Toolkit is extremely easy, just run this command:
 ```sh
 pkg i wget && wget https://raw.githubusercontent.com/Genplat/awesome-termux/main/install.sh && bash install.sh
 ```
