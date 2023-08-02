@@ -18,7 +18,7 @@ def func():
 	    os.system("banner")
 	    os.system("su")
 	elif opt == 5:
-	    os.system("logout")
+	    os.system("close")
 	else:
 	    os.system("echo [!] Invalid option | lolcat")
 	    func()
