@@ -1,5 +1,5 @@
 # Awesome Termux Kit: CustoMUX
-### [*] CustoMUX Awesome Termux Toolkit Basic does NOT require root, however, it does have root functions. If you have root, take a look at our [magisk module](https://github.com/Genplat/customux), it not only has functions for termux, but it is a great toolkit full of functions, obviously, always using the CustoMUX Menu.
+### [*] CustoMUX Awesome Termux Toolkit Basic does NOT require root, however, it does have root functions. If you have root, take a look at our [root edition](https://github.com/Genplat/customux), it not only has functions for termux, but it is a great toolkit full of functions, obviously, always using the CustoMUX Menu.
 
 ----------------------------------------
 
